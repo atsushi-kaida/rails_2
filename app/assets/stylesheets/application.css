@@ -182,3 +182,36 @@ footer {
   box-sizing: border-box;
   text-align: center;
 }
+
+.form-area{
+  padding:20px 40px 10px 30px;
+  margin:20px auto 80px auto;
+  width: 500px;
+  box-sizing: border-box;
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+.actions input{
+  width:100%;
+  
+}
+.field{
+  box-sizing: border-box;
+}
+.field input{
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  margin: 10px auto;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}

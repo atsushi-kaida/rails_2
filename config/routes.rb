@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :reservations
 
   devise_for :users, controllers: {
-    registrations: 'registrations',
-    sessions: 'sessions'
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
   devise_scope :user do
     get "/user/:id", to: "users#profile"
