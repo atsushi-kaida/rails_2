@@ -14,21 +14,18 @@
     <header>
 
       <div class="header-left">
-        <%= link_to image_tag(""), "/"%>
-        <%=#3form_with model: @rooms, method: :get, do |f|%>
-          <%= #f.text_field :city %>
-          <%= #f.text_field :keyword %>
-          <%= #f.submit %>
-        <%#end%>
+        <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"), "/"%>
+        <%= form_with url: search_path, method: :get, class: "search-boxes" do |f|%>
+          <%= f.text_field :place, placeholder: "エリア" %>
+          <%= f.text_field :keyword, placeholder: "キーワード" %>
+        <% end %>
       </div>
 
       <div class="header-right">
-
         <% if user_signed_in? %>
-        <% binding.pry %>
-          <p> <%= current_user.email %> </p>
+          <div><%= current_user.name%></div>
           <div class="nav-items">
-            <%= image_tag "#{current_user.image_name}.img", class: "host-icon"%>
+            <%= image_tag "#{current_user.name}.img", class: "host-icon"%>
             <ul class="header-nav-menu">
               <li>
                 <%= link_to "ルーム登録", "/rooms/new" %>
@@ -47,10 +44,9 @@
               </li>
             </ul>
           </div>
-
         <% else %>
-          <%= button_to "ログイン" new_user_session_path, class: "btn btn-primary"%>
-          <%= button_to "登録" new_user_registration_path%>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+          <%= link_to "登録する", new_user_registration_path, class: "btn btn-secondary" %>
         <% end %>
       </div>
     </header>
