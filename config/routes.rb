@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   }
   devise_scope :user do
     get "/user/:id", to: "users#profile"
+    get "users", to: "users/registrations#new"
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
