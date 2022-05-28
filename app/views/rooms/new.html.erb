@@ -1,0 +1,31 @@
+<div class="form-area">
+  
+  <h3>ルーム情報登録</h3>
+  <%= render "shared/error", obj: @room %>
+  <div class="separated-field"></div>
+  <%= form_with model: @room, data:{turbo: false} do |f| %>
+    <div class="separated-field">
+      <%= f.label :name, "ルーム名", class: "room-label" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "ルーム名を入力" %>
+    </div>
+    <div class="separated-field">
+      <%= f.label :intro, "ルーム紹介", class: "room-label" %>
+      <%= f.text_area :intro, rows: "5", autocomplete: "ルーム説明を入力" %>
+    </div>
+    <div class="separated-field">
+      <%= f.label :price, "料金", class: "room-label" %>
+      <%= f.number_field :price, autocomplete: "一日あたりの料金を入力" %>
+    </div>
+    <div class="separated-field">
+      <%= f.label :place, "住所", class: "room-label" %>
+      <%= f.text_field :place, autocomplete: "住所を入力" %>
+    </div>
+    <div class="separated-field">
+      <%= f.label :room_image, "ルーム画像", class: "room-label" %>
+      <%= f.file_field :room_image, accept: "image/jpg,image/jpeg,image/png,image/gif" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "更新", class: "btn-primary" %>
+    </div>
+  <%end%>
+</div>

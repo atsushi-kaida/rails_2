@@ -12,6 +12,11 @@ p {
 a {
   text-decoration: none;
 }
+ul{
+  margin-block-start: 0;
+  margin-block-end: 0;
+  list-style: none;
+}
 
 header {
   display: flex;
@@ -48,16 +53,20 @@ header {
 .header-right p {
   color: white;
   font-size: 14px;
+  margin-right: 20px;
 }
+
 .host-icon{
   width: 65px;
   height: 65px;
   object-fit: cover;
   border-radius: 50px;
+  vertical-align: middle;
 }
 .displayHeader{
   display: block !important;
 }
+
 .header-nav-menu {
   display: none;
   background-color: white;
@@ -203,14 +212,51 @@ footer {
   box-sizing: border-box;
   border: 2px solid gray;
   border-radius: 5px;
+  text-align: center;
 }
 .actions input{
   width:100%;
-  
 }
 .field{
   box-sizing: border-box;
 }
+.error_field {
+  display: flex;
+  flex-direction: column;
+}
+
+.separated-field{
+  display: flex;
+  box-sizing: border-box;
+  padding: 10px 5px 30px 5px;
+  margin:0 15px;
+  border-bottom: 1px solid #9aa1a8;
+}
+
+h3{
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.field_with_errors{
+  display: contents;
+}
+
+.room-label{
+  padding:0 15px;
+  width:100%;
+  max-width: 25%;
+}
+
+.separated-field input{
+  width: 100%;
+  max-width: 75%;
+}
+
+.separated-field textarea{
+  width: 100%;
+}
+
 .field input{
   display: block;
   box-sizing: border-box;
@@ -228,3 +274,12 @@ footer {
   border-radius: 0.25rem;
   box-sizing: border-box;
 }
+/* room show */
+.room-show-container{
+  display: flex;
+}
+
+.room-image{
+  width: 100%;
+}
+

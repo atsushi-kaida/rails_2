@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'rooms/posts', to: 'rooms#show'
+  get 'rooms/posts', to: 'rooms#posts'
   get '/search', to: 'rooms#search'
 
   resources :rooms
@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   devise_scope :user do
-    get "/user/:id", to: "users#profile"
     get "users", to: "users/registrations#new"
   end
 
