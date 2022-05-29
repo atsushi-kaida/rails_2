@@ -395,3 +395,35 @@ th{
 td{
   text-align: center;
 }
+
+/* search */
+
+.search-panels{
+  display: flex;
+
+}
+
+.search-panel{
+  border: 1px solid #e2e2e2;
+  margin-bottom: 10px;
+  max-width: 33.33%;
+  text-decoration: none;
+}
+.search-panel a{
+  color: black;
+}
+.search-panel img{
+  margin-top: 10px;
+  width: 100%;
+  height:  200px;
+}
+.search-profile{
+  padding: 15px;
+}
+.search-profile h3{
+  margin-bottom: 5px;
+  color: #6c757d;
+}
+.search-profile p:last-child{
+  text-align: right;
+}

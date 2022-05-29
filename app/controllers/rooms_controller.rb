@@ -54,6 +54,6 @@ class RoomsController < ApplicationController
   end
 
   def search
-    @rooms = Room.where("name LIKE ?" "%#{params[:keyword]}%").or(Room.where("place LIKE ?" "%#{params[:place]}%"))
+    @rooms = Room.where("name LIKE ?", "%#{params[:keyword]}%").where("place LIKE ?", "%#{params[:place]}%")
   end
 end
