@@ -3,15 +3,29 @@
   <table>
     <thead>
       <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>合計料金</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>予約確定日</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <tr>
+          <td><%= image_tag "room_images/#{reservation.room.image_name}", class: "reservation-index-image", alt: "部屋画像" %></td>
+          <td><%= link_to reservation.room.name, room_path(reservation.room.id) %></td>
+          <td><%= reservation.room.intro %></td>
+          <td>
+            <%= reservation.room.price * reservation.people_count * (reservation.end_day.to_date-reservation.start_day.to_date).to_i %>
+          </td>
+          <td><%= reservation.start_day.to_date %></td>
+          <td><%= reservation.end_day.to_date %></td>
+          <td><%= reservation.created_at.to_date %></td>
+        </tr>
+      <%end%>
+    </tbody>
   </table>
 </div>

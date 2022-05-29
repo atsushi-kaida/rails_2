@@ -15,9 +15,10 @@
 
       <div class="header-left">
         <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"), "/"%>
-        <%= form_with url: search_path, method: :get, class: "search-boxes" do |f|%>
+        <%= form_with url: rooms_search_path, method: :get, class: "search-boxes" do |f|%>
           <%= f.text_field :place, placeholder: "エリア" %>
           <%= f.text_field :keyword, placeholder: "キーワード" %>
+          <%= f.submit "検索" , class: "hidden"%>
         <% end %>
       </div>
 

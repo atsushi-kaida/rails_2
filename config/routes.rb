@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'rooms/posts', to: 'rooms#posts'
-  get '/search', to: 'rooms#search'
+  get 'rooms/search', to: 'rooms#search'
 
   resources :rooms
   resources :reservations

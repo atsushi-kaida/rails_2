@@ -375,3 +375,23 @@ h3{
 .reservation-show-slice h4{
   width: 40%;
 }
+
+/* res index */
+
+.room-index-category{
+  display: flex;
+}
+.reservation-index-image{
+  width: 240px;
+  height: 140px;
+  object-fit: cover;
+}
+.hidden{
+  display: none !important;
+}
+th{
+  text-align: center;
+}
+td{
+  text-align: center;
+}
