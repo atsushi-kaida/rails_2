@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="reservation-show">
+    <div class="reservation-show-slice">
+      <h4>予約した部屋</h4>
+      <p><%= @room.name %></p>
+    </div>
+    <div class="reservation-show-slice">
+      <h4>開始日</h4>
+      <p><%= @reservation.start_day.to_date %></p>
+    </div>
+    <div class="reservation-show-slice">
+      <h4>終了日</h4>
+      <p><%= @reservation.end_day.to_date %></p>
+    </div>
+    <div class="reservation-show-slice">
+      <h4>価格</h4>
+      <p><%= @room.price * @reservation.people_count * (@reservation.end_day.to_date-@reservation.start_day.to_date).to_i %>円</p>
+    </div>
+  </div>
+</div>

@@ -23,7 +23,7 @@
     <div class="field">
       <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認"%>
     </div>
-
+    <%= f.hidden_field :icon_name, value: "default_icon.jpeg" %>
     <div class="actions">
       <%= f.submit "新しいアカウントを作成", class: "btn-primary"%>
     </div>

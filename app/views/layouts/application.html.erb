@@ -36,7 +36,7 @@
             <% if current_user.icon_name.nil? %>
               <%= image_tag "default_icon.jpeg", class: "host-icon", alt: "icon", onclick: "displayMenu();"%>
             <%else%>
-              <%= image_tag "#{current_user.icon_name}", class: "host-icon", alt: "icon", onclick: "displayMenu();"%>
+              <%= image_tag "user_images/#{current_user.icon_name}", class: "host-icon", alt: "icon", onclick: "displayMenu();"%>
             <%end%>
 
             <ul class="header-nav-menu" id="hidden-menu">
