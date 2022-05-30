@@ -50,7 +50,7 @@ class RoomsController < ApplicationController
   end
 
   def posts
-
+    @rooms = Room.where(user_id: current_user.id)
   end
 
   def search
