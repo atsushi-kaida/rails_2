@@ -37,18 +37,6 @@ class RoomsController < ApplicationController
     @owner = User.find(@room.user_id)
   end
 
-  def edit
-
-  end
-
-  def update
-
-  end
-
-  def destroy
-
-  end
-
   def posts
     @rooms = Room.where(user_id: current_user.id)
   end

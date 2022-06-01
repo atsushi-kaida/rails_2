@@ -34,11 +34,8 @@
               }
             </script>
 
-            <% if current_user.icon_name.nil? %>
-              <%= image_tag "default_icon.jpeg", class: "host-icon", alt: "icon", onclick: "displayMenu();"%>
-            <%else%>
-              <%= image_tag "user_images/#{current_user.icon_name}", class: "host-icon", alt: "icon", onclick: "displayMenu();"%>
-            <%end%>
+            <%= image_tag "user_images/#{current_user.icon_name}", class: "host-icon", alt: "icon", onclick: "displayMenu();"%>
+            
 
             <ul class="header-nav-menu" id="hidden-menu">
               <li><%= link_to "ルーム登録", new_room_path %></li>

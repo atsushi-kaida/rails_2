@@ -18,6 +18,7 @@ class ReservationsController < ApplicationController
       render "reservation/new"
     end
   end
+  
   def show
     @reservation = Reservation.find(params[:id])
     @room = Room.find(@reservation.room_id)
