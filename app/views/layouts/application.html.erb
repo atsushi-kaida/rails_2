@@ -24,7 +24,7 @@
 
       <div class="header-right">
         <% if user_signed_in? %>
-          <p><%= current_user.name%></p>
+          <p><%= current_user.profile.name%></p>
           <div class="nav-items">
           <!-- rails7でどこにjsを描けばいいのかわからなかったscript-->
             <script>
@@ -34,7 +34,7 @@
               }
             </script>
 
-            <%= image_tag "user_images/#{current_user.icon_name}", class: "host-icon", alt: "icon", onclick: "displayMenu();"%>
+            <%= image_tag "user_images/#{current_user.profile.icon_name}", class: "host-icon", alt: "icon", onclick: "displayMenu();"%>
             
 
             <ul class="header-nav-menu" id="hidden-menu">
