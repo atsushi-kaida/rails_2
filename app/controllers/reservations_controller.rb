@@ -5,17 +5,19 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @room = Room.find(params[:room_id])
-    @reservation = Reservation.new
-    @total_day = (params[:end_day].to_date - params[:start_day].to_date).to_i
+    @room = Room.find(params[:reservation][:room_id])
+    @reservation = Reservation.new(reservation_params)
+    @owner = User.find(@room.user_id)
+    @total_day = (@reservation.end_day.to_date - @reservation.start_day.to_date).to_i
+    render "rooms/show" if @reservation.invalid?
   end
 
   def create
-    @reservation = Reservation.new(params.require(:reservation).permit(:start_day, :end_day, :people_count, :room_id))
+    @reservation = Reservation.new(reservation_params)
     if @reservation.save
       redirect_to reservation_path(@reservation.id)
     else
-      render "reservation/new"
+      redirect_to room_path(@reservation.room_id)
     end
   end
   
@@ -34,4 +36,9 @@ class ReservationsController < ApplicationController
   def destroy
 
   end
+
+  private
+    def reservation_params
+        params.require(:reservation).permit(:start_day, :end_day, :people_count, :room_id)
+    end
 end
