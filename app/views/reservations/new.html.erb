@@ -18,13 +18,13 @@
     </div>
     <div>
       <%= f.label "合計金額", class: "reservation-label" %>
-      <%= f.text_field :total_price, class:"form-control", value: (params[:people_count].to_i * @room.price * @total_day) %>
+      <%= f.text_field :total_price, class:"form-control", value: (params[:people_count].to_i * @room.price * @total_day), readonly: :true%>
     <p>上記でよろしければ「予約を確定」を押してください</p>
     </div>
     <%= f.hidden_field :room_id, value: params[:room_id] %>
     <%= f.hidden_field :people_count, value: params[:people_count] %>
     <div>
-      <%= f.submit "予約する", class:"btn-primary wide-btn"%>
+      <%= f.submit "予約を確定", class:"btn-primary wide-btn"%>
     </div>
     <%= link_to "ルーム詳細に戻る", room_path(@room.id), class: "btn btn-secondary wide-btn" %>
   <%end%>

@@ -4,6 +4,40 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+
+  def account
+
+  end
+
+  def profile
+    @profile = Profile.find(current_user.id)
+  end
+
+  def editprofile
+    @profile = Profile.find_by(user_id: current_user.id)
+    old_file_name = @profile.icon_name
+    if params[:user_image]
+      upload_file = params[:user_image]
+      extension = File.extname(upload_file)
+      upload_file_name = current_user.id.to_s+extension
+      upload_file_path = "app/assets/images/user_images/#{upload_file_name}"
+      new_params = params.permit(:name, :user_intro).merge({icon_name: upload_file_name, user_id: current_user.id})
+    else
+      new_params = params.permit(:name, :user_intro).merge({icon_name: old_file_name, user_id: current_user.id})
+    end
+
+
+    if @profile.update(new_params)
+      if params[:user_image]
+        File.binwrite(upload_file_path, upload_file.read)
+      end
+      redirect_to users_profile_path
+    else
+      render "users/profile"
+    end
+
+  end
+
   # GET /resource/sign_up
   def new
     super
@@ -11,29 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   #POST /resource
   def create
-    build_resource(sign_up_params)
-    puts "-----------------"
-    p sign_up_params
-    puts "-----------------"
-    p resource
-    puts "-----------------"
-    resource.save
-    yield resource if block_given?
-    if resource.persisted?
-      if resource.active_for_authentication?
-        set_flash_message! :notice, :signed_up
-        sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource)
-      else
-        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
-        expire_data_after_sign_in!
-        respond_with resource, location: after_inactive_sign_up_path_for(resource)
-      end
-    else
-      clean_up_passwords resource
-      set_minimum_password_length
-      respond_with resource
-    end
+    super
   end
 
   # GET /resource/edit

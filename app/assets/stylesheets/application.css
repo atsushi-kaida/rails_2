@@ -215,17 +215,19 @@ footer {
 }
 
 
-/* user_registration */
+/* room_new */
 
 
 .form-area{
   padding:20px 40px 10px 30px;
   margin:20px auto 80px auto;
-  width: 500px;
+  width: 100%;
+  max-width: 880px;
   box-sizing: border-box;
   border: 2px solid gray;
   border-radius: 5px;
   text-align: center;
+  background-color: white;
 }
 .actions input{
   width:100%;
@@ -255,7 +257,8 @@ h3{
   display: contents;
 }
 
-.room-label{
+.form-label{
+  font-weight: bold;
   padding:0 15px;
   width:100%;
   max-width: 25%;
@@ -356,7 +359,7 @@ h3{
   width: 100px !important;
   margin:0 auto;
 }
-
+/* reservation/show */
 .reservation-show{
   padding:0 40px 0 30px;
   margin:20px auto 80px auto;
@@ -376,7 +379,7 @@ h3{
   width: 40%;
 }
 
-/* res index */
+/* reservation index */
 
 .room-index-category{
   display: flex;
@@ -401,7 +404,6 @@ td{
 
 .search-panels{
   display: flex;
-
 }
 
 .search-panel{
@@ -427,4 +429,58 @@ td{
 }
 .search-profile p:last-child{
   text-align: right;
+}
+
+/* profile */
+.separated-field img{
+  margin: 0 auto;
+}
+
+/* setting */
+.side-menu-bar{
+  height:100vh;
+  padding: 30px 15px;
+  max-width: 16.66%;
+  box-sizing: border-box;
+}
+.upper-menu-bar li{
+  float: left;
+}
+.setting-bar a{
+  color: black;
+}
+.setting-bar li{
+  padding: 10px;
+  font-size: 18px;
+}
+.setting-page{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-area-wrapper{
+  width: 100%;
+  max-width: 83%;
+  padding: 0 20px;
+  background-color: #cccecf;
+  box-sizing: border-box;
+  border-left: #9aa1a8 2px solid;
+}
+/* エラー吐いたのでファイルを分けてません */
+@media (max-width: 992px) {
+  .search-boxes {
+    display: none !important;
+  }
+
+  .upper-menu-bar {
+    display: block !important;
+  }
+
+  .side-menu-bar {
+    display: none;
+  }
+  .slogan{
+    max-width: 80%;
+    margin: 0 auto;
+  }
 }

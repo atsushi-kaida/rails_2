@@ -1,0 +1,21 @@
+<div class="setting-page">
+  <%= render "shared/setting_menu_bar" %>
+  <div class="form-area-wrapper">
+    <div class="form-area">
+      <div class="separated-field">
+        <h3>アカウント</h3>
+      </div>
+      <%= form_with url: edit_user_registration_path, data:{turbo: false} do |f| %>
+      <div class="separated-field">
+        <%= f.label :email, "メールアドレス", class: "form-label" %>
+        <%= f.text_field :email, value: current_user.email, readonly: :true %>
+      </div>
+      <div class="separated-field">
+        <%= f.label :password, "パスワード", class: "form-label" %>
+        <%= f.password_field :password, value: "********", readonly: :true %>
+      </div>
+      <%= link_to "編集", edit_user_registration_path, class: "btn btn-primary" %>
+      <%end%>
+    </div>
+  </div>
+</div>

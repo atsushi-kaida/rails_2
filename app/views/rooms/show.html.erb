@@ -3,7 +3,7 @@
   <div class="room-show">
     <%= image_tag "room_images/#{@room.image_name}", class: "room-image", alt: "部屋画像"%>
     <div class="room-show-detail">
-      <%= image_tag "user_images/#{@owner.icon_name}", class: "owner-icon"%>
+      <%= image_tag "user_images/#{@owner.profile.icon_name}", class: "owner-icon"%>
       <div class="room-show-profile">
         <h2><%= @room.name %></h2>
         <p> <%= @room.place%> </p>
@@ -15,7 +15,7 @@
   </div>
 
   <div class="reservation-form">
-    <%= form_with model: @reservation ,url: new_reservation_path, method: :get, data:{turbo: false} do |f| %>
+    <%= form_with url: new_reservation_path, method: :get, data:{turbo: false} do |f| %>
       <h5>¥ <%= @room.price %> /日 </h5>
       <div>
         <%= f.label :start_day, "開始日", class: "reservation-label" %>

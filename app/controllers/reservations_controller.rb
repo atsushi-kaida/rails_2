@@ -21,7 +21,6 @@ class ReservationsController < ApplicationController
   
   def show
     @reservation = Reservation.find(params[:id])
-    @room = Room.find(@reservation.room_id)
   end
 
   def edit
