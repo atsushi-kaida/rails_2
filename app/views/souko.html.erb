@@ -1,0 +1,13 @@
+<div class="setting-field">
+  <div class="setting-line">
+    <h3></h3>
+  </div>
+  <div class="setting-line">
+    <%= image_tag "user_images/#{@user.icon_name}", alt: "icon" %>
+  </div>
+  <div>
+    <%= f.label :user_image, "アイコン画像" %>
+    <%= f.file_field :user_image, accept: "image/jpg,image/jpeg,image/png,image/gif" %>
+  </div>
+
+</div>

@@ -7,10 +7,60 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <header>
+
+      <div class="header-left">
+        <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"), "/"%>
+        <%= form_with url: rooms_search_path, method: :get, class: "search-boxes" do |f|%>
+          <%= f.text_field :place, placeholder: "エリア" %>
+          <%= f.text_field :keyword, placeholder: "キーワード" %>
+          <%= f.submit "検索" , class: "hidden"%>
+        <% end %>
+      </div>
+
+      <div class="header-right">
+        <% if user_signed_in? %>
+          <p><%= current_user.profile.name%></p>
+          <div class="nav-items">
+          <!-- rails7でどこにjsを描けばいいのかわからなかったscript-->
+            <script>
+              function displayMenu() {
+                document.getElementById("hidden-menu").classList.toggle("displayHeader");
+                console.log("test")
+              }
+            </script>
+
+            <%= image_tag "user_images/#{current_user.profile.icon_name}", class: "host-icon", alt: "icon", onclick: "displayMenu();"%>
+            
+
+            <ul class="header-nav-menu" id="hidden-menu">
+              <li><%= link_to "ルーム登録", new_room_path %></li>
+              <li><%= link_to "予約済みルーム一覧", reservations_path %></li>
+              <li><%= link_to "登録済みルーム一覧", rooms_posts_path %></li>
+              <li><%= link_to "設定", users_account_path %></li>
+              <li><%= link_to"ログアウト", destroy_user_session_path, data:{turbo_method: :delete} %></li>
+            </ul>
+
+          </div>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+          <%= link_to "登録する", new_user_registration_path, class: "btn btn-secondary" %>
+        <% end %>
+      </div>
+    </header>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+
+    <footer>
+      <p>footerlogo</p>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,11 @@
+@media (max-width: 992px){
+  .search-boxes{
+    display: none;
+  }
+  .upper-menu-bar{
+    display: block;
+  }
+  .side-menu-bar{
+    display: none;
+  }
+}
